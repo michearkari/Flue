@@ -6,18 +6,20 @@
   <title>Flue — Fale inglês todos os dias pelo WhatsApp</title>
   <meta name="description" content="Um agente inteligente que conversa com você por áudio, corrige e evolui seu inglês na prática. Sem app extra, direto no WhatsApp." />
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green: #1D9E75;
-      --green-dark: #0F6E56;
-      --green-light: #E1F5EE;
-      --green-text: #0F6E56;
+      --green: #22c55e;
+      --green-dark: #16a34a;
+      --green-light: #dcfce7;
+      --green-text: #15803d;
+      --green-glow: rgba(34, 197, 94, 0.15);
       --coral: #D85A30;
       --wa-green: #25D366;
       --wa-green-dark: #1ead54;
@@ -30,6 +32,10 @@
       --radius-md: 10px;
       --radius-lg: 16px;
       --radius-xl: 24px;
+      /* Header/Footer */
+      --header-bg: #0a0a0a;
+      --header-text: #ffffff;
+      --header-text-muted: #a1a1aa;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -40,8 +46,8 @@
         --bg: #111;
         --bg-surface: #1c1c1a;
         --border: rgba(255,255,255,0.1);
-        --green-text: #5DCAA5;
-        --green-light: #04342C;
+        --green-text: #4ade80;
+        --green-light: #052e16;
       }
     }
 
@@ -56,57 +62,79 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* ─── HEADER ─── */
+    .header {
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--green-glow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo img {
+      height: 38px;
+      width: auto;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-header {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-header-ghost {
+      background: transparent;
+      border: none;
+      color: var(--header-text);
+    }
+
+    .btn-header-ghost:hover {
+      color: var(--green);
+    }
+
+    .btn-header-primary {
+      background: var(--green);
+      border: none;
+      color: #0a0a0a;
+      font-weight: 600;
+    }
+
+    .btn-header-primary:hover {
+      background: #4ade80;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
+    }
+
     /* ─── LAYOUT ─── */
     .container {
       max-width: 680px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
-
-    /* ─── NAV ─── */
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 0;
-      border-bottom: 0.5px solid var(--border);
-    }
-
-    .nav-logo {
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-logo span { color: var(--green); }
-
-    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
-
-    .nav-links a {
-      font-size: 14px;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .btn-nav {
-      background: var(--green);
-      color: #fff;
-      border: none;
-      padding: 9px 20px;
-      border-radius: 24px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
-    .btn-nav:hover { background: var(--green-dark); }
 
     /* ─── HERO ─── */
     .hero {
@@ -127,8 +155,9 @@
     }
 
     .hero h1 {
+      font-family: 'Sora', sans-serif;
       font-size: clamp(28px, 6vw, 40px);
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.2;
       letter-spacing: -0.75px;
       margin-bottom: 1rem;
@@ -150,21 +179,25 @@
       align-items: center;
       gap: 10px;
       background: var(--green);
-      color: #fff;
+      color: #0a0a0a;
       border: none;
       padding: 15px 32px;
       border-radius: 32px;
       font-size: 16px;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
     }
 
-    .btn-hero:hover { background: var(--green-dark); transform: translateY(-2px); }
+    .btn-hero:hover { 
+      background: #4ade80; 
+      transform: translateY(-2px); 
+      box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
+    }
     .btn-hero:active { transform: translateY(0); }
 
-    .btn-hero svg { width: 20px; height: 20px; fill: #fff; }
+    .btn-hero svg { width: 20px; height: 20px; fill: #0a0a0a; }
 
     .hero-sub {
       margin-top: 1.25rem;
@@ -320,8 +353,9 @@
     }
 
     .cta-final h2 {
+      font-family: 'Sora', sans-serif;
       font-size: clamp(22px, 5vw, 32px);
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.25;
       letter-spacing: -0.5px;
       margin-bottom: 0.75rem;
@@ -362,20 +396,64 @@
     }
 
     /* ─── FOOTER ─── */
-    footer {
-      text-align: center;
-      padding: 2rem 0;
-      border-top: 0.5px solid var(--border);
+    .footer {
+      background: var(--header-bg);
+      border-top: 1px solid var(--green-glow);
+      padding: 1.5rem 0;
     }
 
-    footer p {
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo img {
+      height: 28px;
+      opacity: 0.85;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--header-text-muted);
+      text-decoration: none;
       font-size: 13px;
-      color: var(--text-faint);
+      transition: color 0.2s;
     }
 
-    footer strong {
-      color: var(--text-muted);
-      font-weight: 500;
+    .footer-links a:hover {
+      color: var(--green);
+    }
+
+    .footer-copy {
+      color: #71717a;
+      font-size: 12px;
+    }
+
+    .footer-copy span {
+      color: var(--green);
+    }
+
+    @media (max-width: 600px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-links {
+        order: 2;
+      }
+      .footer-copy {
+        order: 3;
+      }
     }
 
     /* ─── ANIMAÇÃO ENTRADA ─── */
@@ -389,22 +467,41 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ─── MOBILE HEADER ─── */
+    @media (max-width: 480px) {
+      .header-container {
+        height: 64px;
+      }
+      .header-logo img {
+        height: 32px;
+      }
+      .btn-header {
+        padding: 8px 14px;
+        font-size: 13px;
+      }
+      .btn-header-ghost span {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#" class="header-logo">
+        <img src="logo.png" alt="Flue">
+      </a>
+      <nav class="header-nav">
+        <a href="#como-funciona" class="btn-header btn-header-ghost"><span>Como funciona</span></a>
+        <a href="#cta" class="btn-header btn-header-primary">Começar agora</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- NAV -->
-    <nav class="nav">
-     <a href="#" class="nav-logo">
-      <img src="logo.png" alt="Flue" style="width: 90px;">
-     </a>
-      <div class="nav-links">
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#cta" class="btn-nav">Começar agora</a>
-      </div>
-    </nav>
+  <div class="container">
 
     <!-- HERO -->
     <section class="hero" data-animate>
@@ -511,12 +608,25 @@
       <p class="cta-note">Criado por <strong>Agentic Systems</strong></p>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-      <p>© 2026 Flue — <strong>Agentic Systems</strong></p>
-    </footer>
-
   </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <a href="#" class="footer-logo">
+        <img src="logo.png" alt="Flue">
+      </a>
+      <div class="footer-links">
+        <a href="#">Sobre</a>
+        <a href="#">Privacidade</a>
+        <a href="#">Termos</a>
+        <a href="#">Contato</a>
+      </div>
+      <div class="footer-copy">
+        © 2026 <span>Flue</span> — Agentic Systems
+      </div>
+    </div>
+  </footer>
 
   <script>
     // Scroll animation
