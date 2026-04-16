@@ -75,7 +75,7 @@
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 1.5rem;
-      height: 72px;
+      height: 80px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -345,6 +345,117 @@
 
     .benefit p { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.4; }
 
+    /* ─── VEJA NA PRÁTICA ─── */
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 1.25rem;
+    }
+
+    @media (max-width: 480px) {
+      .demo-grid { grid-template-columns: 1fr; }
+    }
+
+    .demo-placeholder {
+      background: var(--bg-surface);
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-lg);
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-faint);
+      font-size: 14px;
+    }
+
+    .demo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+    }
+
+    /* ─── FAQ ─── */
+    .faq-list {
+      margin-top: 1.25rem;
+    }
+
+    .faq-item {
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.25rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+    }
+
+    .faq-question h3 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--green-light);
+      color: var(--green-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 300;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding-bottom: 1.25rem;
+    }
+
+    .faq-answer p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 6px;
+    }
+
+    .faq-answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .plans-highlight {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green-text);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-top: 8px;
+    }
+
     /* ─── CTA FINAL ─── */
     .cta-final {
       text-align: center;
@@ -471,7 +582,7 @@
     /* ─── MOBILE HEADER ─── */
     @media (max-width: 480px) {
       .header-container {
-        height: 64px;
+        height: 70px;
       }
       .header-logo img {
         height: 48px;
@@ -597,6 +708,60 @@
       </div>
     </section>
 
+    <!-- VEJA NA PRÁTICA -->
+    <section class="section" id="demo" data-animate>
+      <div class="section-label">Veja na prática</div>
+      <div class="demo-grid">
+        <div class="demo-placeholder">📱 Imagem 1</div>
+        <div class="demo-placeholder">📱 Imagem 2</div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" data-animate>
+      <div class="section-label">Perguntas frequentes</div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <h3>Como funciona?</h3>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Você envia áudios em inglês pelo WhatsApp e o Flue responde na conversa, corrige sua pronúncia e sugere melhorias. É como ter um professor disponível 24h, direto no seu celular.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <h3>Quais são os planos disponíveis?</h3>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p><strong>Mensal:</strong> R$ XX,XX/mês — flexibilidade total, cancele quando quiser.</p>
+            <p><strong>Anual:</strong> R$ XX,XX/ano — economize até X meses de prática.</p>
+            <span class="plans-highlight">🎁 Anual = melhor custo-benefício</span>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <h3>Preciso instalar algum aplicativo?</h3>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Não! O Flue funciona 100% dentro do WhatsApp. Basta adicionar nosso número e começar a praticar.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <h3>Serve para qualquer nível de inglês?</h3>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! O Flue se adapta ao seu nível. Iniciantes recebem correções mais detalhadas, enquanto avançados têm conversas mais desafiadoras.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA FINAL -->
     <section class="cta-final" id="cta" data-animate>
       <h2>Comece hoje e fale inglês<br>todos os dias</h2>
@@ -648,6 +813,22 @@
         if (target) {
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const wasActive = item.classList.contains('active');
+        
+        // Fecha todos
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        
+        // Abre o clicado (se não estava ativo)
+        if (!wasActive) {
+          item.classList.add('active');
         }
       });
     });
