@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade — Flue</title>
+  <meta name="description" content="Política de Privacidade do Flue - Como tratamos seus dados pessoais." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #22c55e;
+      --green-dark: #16a34a;
+      --green-light: #dcfce7;
+      --green-text: #15803d;
+      --green-glow: rgba(34, 197, 94, 0.15);
+      --text: #1a1a1a;
+      --text-muted: #5a5a5a;
+      --text-faint: #999;
+      --bg: #ffffff;
+      --bg-surface: #f7f7f5;
+      --border: rgba(0,0,0,0.1);
+      --header-bg: #0a0a0a;
+      --header-text: #ffffff;
+      --header-text-muted: #a1a1aa;
+      --radius-lg: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header {
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--green-glow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo img {
+      height: 70px;
+      width: auto;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-header {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .btn-header-ghost {
+      background: transparent;
+      border: none;
+      color: var(--header-text);
+    }
+
+    .btn-header-ghost:hover {
+      color: var(--green);
+    }
+
+    .btn-header-primary {
+      background: var(--green);
+      border: none;
+      color: #0a0a0a;
+      font-weight: 600;
+    }
+
+    .btn-header-primary:hover {
+      background: #4ade80;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .page-header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .page-header h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .content {
+      padding: 2.5rem 0 4rem;
+    }
+
+    .content h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 2rem 0 1rem;
+    }
+
+    .content h2:first-child {
+      margin-top: 0;
+    }
+
+    .content p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      line-height: 1.75;
+    }
+
+    .content ul {
+      color: var(--text-muted);
+      margin: 0 0 1rem 1.5rem;
+      line-height: 1.75;
+    }
+
+    .content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .content strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .info-box {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .info-box p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .footer {
+      background: var(--header-bg);
+      border-top: 1px solid var(--green-glow);
+      padding: 1.5rem 0;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo img {
+      height: 44px;
+      opacity: 0.85;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--header-text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--green);
+    }
+
+    .footer-copy {
+      color: #71717a;
+      font-size: 12px;
+    }
+
+    .footer-copy span {
+      color: var(--green);
+    }
+
+    @media (max-width: 600px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-container { height: 75px; }
+      .header-logo img { height: 60px; }
+      .btn-header { padding: 8px 14px; font-size: 13px; }
+      .page-header h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="header-logo">
+        <img src="logo.png" alt="Flue">
+      </a>
+      <nav class="header-nav">
+        <a href="index.html#como-funciona" class="btn-header btn-header-ghost">Como funciona</a>
+        <a href="index.html#cta" class="btn-header btn-header-primary">Começar agora</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Política de Privacidade</h1>
+      <p>Última atualização: Janeiro de 2026</p>
+    </div>
+
+    <div class="content">
+      
+      <p>Esta Política de Privacidade descreve como o <strong>Flue</strong> coleta, usa, armazena e protege seus dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
+
+      <h2>1. Dados que coletamos</h2>
+      
+      <p>Para fornecer nossos serviços, podemos coletar os seguintes dados pessoais:</p>
+      
+      <ul>
+        <li><strong>Dados de identificação:</strong> nome, número de telefone (WhatsApp)</li>
+        <li><strong>Dados de uso:</strong> mensagens de áudio enviadas, histórico de conversas para personalização do aprendizado</li>
+        <li><strong>Dados de pagamento:</strong> informações necessárias para processar assinaturas (processadas por terceiros seguros)</li>
+        <li><strong>Dados técnicos:</strong> informações sobre o dispositivo e interações com o serviço</li>
+      </ul>
+
+      <h2>2. Como usamos seus dados</h2>
+      
+      <p>Utilizamos seus dados pessoais para as seguintes finalidades:</p>
+      
+      <ul>
+        <li>Fornecer e personalizar o serviço de aprendizado de inglês</li>
+        <li>Analisar seus áudios para oferecer correções e feedback</li>
+        <li>Adaptar o conteúdo ao seu nível e evolução</li>
+        <li>Processar pagamentos e gerenciar sua assinatura</li>
+        <li>Enviar comunicações sobre o serviço</li>
+        <li>Melhorar nossos serviços e desenvolver novos recursos</li>
+      </ul>
+
+      <h2>3. Base legal para o tratamento</h2>
+      
+      <p>O tratamento dos seus dados pessoais é realizado com base nas seguintes hipóteses legais previstas na LGPD:</p>
+      
+      <ul>
+        <li><strong>Execução de contrato:</strong> para fornecer o serviço contratado</li>
+        <li><strong>Consentimento:</strong> quando você aceita esta política ao usar o serviço</li>
+        <li><strong>Legítimo interesse:</strong> para melhorar nossos serviços</li>
+      </ul>
+
+      <h2>4. Compartilhamento de dados</h2>
+      
+      <p><strong>Não vendemos seus dados pessoais.</strong> Podemos compartilhar dados apenas nas seguintes situações:</p>
+      
+      <ul>
+        <li><strong>Processadores de pagamento:</strong> para processar transações financeiras</li>
+        <li><strong>Provedores de infraestrutura:</strong> serviços de hospedagem e processamento</li>
+        <li><strong>Obrigação legal:</strong> quando exigido por lei ou autoridade competente</li>
+      </ul>
+      
+      <p>Todos os terceiros com quem compartilhamos dados estão sujeitos a obrigações de confidencialidade e proteção de dados.</p>
+
+      <h2>5. Armazenamento e segurança</h2>
+      
+      <p>Seus dados são armazenados em servidores seguros com medidas técnicas e organizacionais apropriadas, incluindo:</p>
+      
+      <ul>
+        <li>Criptografia de dados em trânsito e em repouso</li>
+        <li>Controles de acesso restritos</li>
+        <li>Monitoramento de segurança</li>
+        <li>Backups regulares</li>
+      </ul>
+
+      <h2>6. Retenção de dados</h2>
+      
+      <p>Mantemos seus dados pessoais apenas pelo tempo necessário para cumprir as finalidades descritas nesta política, ou conforme exigido por lei. Após o cancelamento da sua assinatura, seus dados serão excluídos em até 30 dias, exceto quando houver obrigação legal de retenção.</p>
+
+      <h2>7. Seus direitos (LGPD)</h2>
+      
+      <p>Conforme a LGPD, você tem os seguintes direitos sobre seus dados pessoais:</p>
+      
+      <ul>
+        <li><strong>Confirmação e acesso:</strong> saber se tratamos seus dados e acessá-los</li>
+        <li><strong>Correção:</strong> corrigir dados incompletos ou desatualizados</li>
+        <li><strong>Anonimização ou exclusão:</strong> solicitar a exclusão de dados desnecessários</li>
+        <li><strong>Portabilidade:</strong> receber seus dados em formato estruturado</li>
+        <li><strong>Revogação do consentimento:</strong> retirar seu consentimento a qualquer momento</li>
+        <li><strong>Informação:</strong> saber com quem seus dados são compartilhados</li>
+      </ul>
+      
+      <div class="info-box">
+        <p>Para exercer qualquer desses direitos, entre em contato conosco através da página de <a href="contato.html" style="color: var(--green);">Contato</a>.</p>
+      </div>
+
+      <h2>8. Cookies e tecnologias similares</h2>
+      
+      <p>Como o Flue opera via WhatsApp, não utilizamos cookies em nosso serviço principal. Nosso site pode utilizar cookies essenciais para funcionamento básico.</p>
+
+      <h2>9. Menores de idade</h2>
+      
+      <p>O Flue é destinado a maiores de 18 anos. Se você é menor de idade, deve ter autorização dos pais ou responsáveis para usar o serviço.</p>
+
+      <h2>10. Alterações nesta política</h2>
+      
+      <p>Podemos atualizar esta Política de Privacidade periodicamente. Notificaremos sobre mudanças significativas através do WhatsApp ou outros meios de comunicação.</p>
+
+      <h2>11. Contato</h2>
+      
+      <p>Para dúvidas sobre esta política ou sobre o tratamento dos seus dados pessoais, entre em contato:</p>
+      
+      <div class="info-box">
+        <p><strong>WhatsApp:</strong> (49) 8848-6588</p>
+        <p style="margin-top: 8px;"><strong>Página de contato:</strong> <a href="contato.html" style="color: var(--green);">contato.html</a></p>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <a href="index.html" class="footer-logo">
+        <img src="logo.png" alt="Flue">
+      </a>
+      <div class="footer-links">
+        <a href="sobre.html">Sobre</a>
+        <a href="privacidade.html">Privacidade</a>
+        <a href="termos.html">Termos</a>
+        <a href="contato.html">Contato</a>
+      </div>
+      <div class="footer-copy">
+        © 2026 <span>Flue</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

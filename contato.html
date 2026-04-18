@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato — Flue</title>
+  <meta name="description" content="Entre em contato com o Flue." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #22c55e;
+      --green-dark: #16a34a;
+      --green-light: #dcfce7;
+      --green-text: #15803d;
+      --green-glow: rgba(34, 197, 94, 0.15);
+      --wa-green: #25D366;
+      --wa-green-dark: #1ead54;
+      --text: #1a1a1a;
+      --text-muted: #5a5a5a;
+      --text-faint: #999;
+      --bg: #ffffff;
+      --bg-surface: #f7f7f5;
+      --border: rgba(0,0,0,0.1);
+      --header-bg: #0a0a0a;
+      --header-text: #ffffff;
+      --header-text-muted: #a1a1aa;
+      --radius-lg: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header {
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--green-glow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo img {
+      height: 70px;
+      width: auto;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-header {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .btn-header-ghost {
+      background: transparent;
+      border: none;
+      color: var(--header-text);
+    }
+
+    .btn-header-ghost:hover {
+      color: var(--green);
+    }
+
+    .btn-header-primary {
+      background: var(--green);
+      border: none;
+      color: #0a0a0a;
+      font-weight: 600;
+    }
+
+    .btn-header-primary:hover {
+      background: #4ade80;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .page-header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .page-header h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    .content {
+      padding: 2.5rem 0 4rem;
+    }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: border-color 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .contact-card:hover {
+      border-color: var(--green);
+    }
+
+    .contact-card .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .contact-card .icon.whatsapp {
+      background: var(--wa-green);
+    }
+
+    .contact-card .icon svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+
+    .contact-card .info h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .contact-card .info p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .contact-card .info a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--green);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-card .info a:hover {
+      color: var(--green-dark);
+    }
+
+    .contact-card .info a svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .btn-wa-large {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: var(--wa-green);
+      color: #fff;
+      border: none;
+      padding: 18px 32px;
+      border-radius: 50px;
+      font-size: 17px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      width: 100%;
+      max-width: 400px;
+      margin: 2rem auto 0;
+    }
+
+    .btn-wa-large:hover { 
+      background: var(--wa-green-dark); 
+      transform: translateY(-2px); 
+    }
+
+    .btn-wa-large svg { 
+      width: 24px; 
+      height: 24px; 
+      fill: #fff; 
+    }
+
+    .faq-note {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .faq-note p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .faq-note a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .faq-note a:hover {
+      text-decoration: underline;
+    }
+
+    .response-time {
+      background: var(--green-light);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .response-time p {
+      color: var(--green-text);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .response-time strong {
+      font-weight: 600;
+    }
+
+    .footer {
+      background: var(--header-bg);
+      border-top: 1px solid var(--green-glow);
+      padding: 1.5rem 0;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo img {
+      height: 44px;
+      opacity: 0.85;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--header-text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--green);
+    }
+
+    .footer-copy {
+      color: #71717a;
+      font-size: 12px;
+    }
+
+    .footer-copy span {
+      color: var(--green);
+    }
+
+    @media (max-width: 600px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-container { height: 75px; }
+      .header-logo img { height: 60px; }
+      .btn-header { padding: 8px 14px; font-size: 13px; }
+      .page-header h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="header-logo">
+        <img src="logo.png" alt="Flue">
+      </a>
+      <nav class="header-nav">
+        <a href="index.html#como-funciona" class="btn-header btn-header-ghost">Como funciona</a>
+        <a href="index.html#cta" class="btn-header btn-header-primary">Começar agora</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Fale com a gente</h1>
+      <p>Estamos aqui para ajudar você</p>
+    </div>
+
+    <div class="content">
+      
+      <div class="contact-cards">
+        
+        <div class="contact-card">
+          <div class="icon whatsapp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 0C5.373 0 0 5.373 0 12c0 2.118.553 4.112 1.52 5.845L0 24l6.335-1.494A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.626 0 11.999 0zm0 21.818a9.817 9.817 0 01-5.004-1.373l-.36-.213-3.72.876.893-3.626-.233-.374A9.8 9.8 0 012.182 12c0-5.418 4.399-9.818 9.818-9.818S21.818 6.582 21.818 12 17.419 21.818 12 21.818z"/></svg>
+          </div>
+          <div class="info">
+            <h3>WhatsApp</h3>
+            <p>A forma mais rápida de falar com a gente. Tire dúvidas, peça suporte ou fale sobre sua assinatura.</p>
+            <a href="https://wa.me/5549884866588?text=Olá!%20Preciso%20de%20ajuda%20com%20o%20Flue." target="_blank" rel="noopener">
+              (49) 8848-6588
+              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <a href="https://wa.me/5549884866588?text=Olá!%20Preciso%20de%20ajuda%20com%20o%20Flue." class="btn-wa-large" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 0C5.373 0 0 5.373 0 12c0 2.118.553 4.112 1.52 5.845L0 24l6.335-1.494A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.626 0 11.999 0zm0 21.818a9.817 9.817 0 01-5.004-1.373l-.36-.213-3.72.876.893-3.626-.233-.374A9.8 9.8 0 012.182 12c0-5.418 4.399-9.818 9.818-9.818S21.818 6.582 21.818 12 17.419 21.818 12 21.818z"/></svg>
+        Iniciar conversa no WhatsApp
+      </a>
+
+      <div class="response-time">
+        <p>⚡ <strong>Tempo médio de resposta:</strong> até 2 horas em horário comercial</p>
+      </div>
+
+      <div class="faq-note">
+        <p>Tem uma dúvida comum?</p>
+        <a href="index.html#faq">Confira nossas perguntas frequentes →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <a href="index.html" class="footer-logo">
+        <img src="logo.png" alt="Flue">
+      </a>
+      <div class="footer-links">
+        <a href="sobre.html">Sobre</a>
+        <a href="privacidade.html">Privacidade</a>
+        <a href="termos.html">Termos</a>
+        <a href="contato.html">Contato</a>
+      </div>
+      <div class="footer-copy">
+        © 2026 <span>Flue</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
