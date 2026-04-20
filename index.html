@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Flue — Fale inglês todos os dias pelo WhatsApp</title>
-  <meta name="description" content="Um agente inteligente que conversa com você por áudio, corrige e evolui seu inglês na prática. Sem app extra, direto no WhatsApp." />
+  <meta name="description" content="Um agente inteligente que conversa com você, seja enviado áudio ou mensagens, corrige e evolui seu inglês na prática. Sem app extra, direto no WhatsApp." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -435,6 +435,107 @@
       border-radius: var(--radius-lg);
     }
 
+    /* ─── VIDEO ─── */
+    .demo-intro {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .video-container {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 500px;
+      object-fit: contain;
+    }
+
+    /* ─── TESTE GRÁTIS ─── */
+    .trial-box {
+      background: linear-gradient(135deg, var(--green-light) 0%, #f0fdf4 100%);
+      border: 1px solid var(--green);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .trial-icon {
+      font-size: 48px;
+      margin-bottom: 1rem;
+    }
+
+    .trial-box h3 {
+      font-family: 'Sora', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .trial-box > p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
+
+    .trial-features {
+      list-style: none;
+      margin: 0 0 1.5rem 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .trial-features li {
+      font-size: 14px;
+      color: var(--green-text);
+      font-weight: 500;
+    }
+
+    .btn-trial {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--green);
+      color: #0a0a0a;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 32px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn-trial:hover {
+      background: #4ade80;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
+    }
+
+    .btn-trial svg {
+      width: 20px;
+      height: 20px;
+      fill: #0a0a0a;
+    }
+
+    .trial-note {
+      margin-top: 1rem;
+      font-size: 13px;
+      color: var(--text-faint);
+    }
+
     /* ─── FAQ ─── */
     .faq-list {
       margin-top: 1.25rem;
@@ -703,7 +804,7 @@
     
     <div class="solution-wrapper">
       <div class="section-label">A solução</div>
-      <p class="sol-intro">O Flue coloca você em prática todos os dias.</p>
+      <p class="sol-intro">O Flue Speak coloca você em prática todos os dias.</p>
       <div class="solution-grid">
         <div class="sol-card">
           <span class="sol-icon">🎙️</span>
@@ -780,9 +881,32 @@
     <!-- VEJA NA PRÁTICA -->
     <section class="section" id="demo" data-animate>
       <div class="section-label">Veja na prática</div>
-      <div class="demo-grid">
-        <div class="demo-placeholder">📱 Imagem 1</div>
-        <div class="demo-placeholder">📱 Imagem 2</div>
+      <p class="demo-intro">Assista como é simples praticar inglês com o Flue:</p>
+      <div class="video-container">
+        <video controls playsinline poster="">
+          <source src="demo-flue.mp4" type="video/mp4">
+          Seu navegador não suporta vídeos.
+        </video>
+      </div>
+    </section>
+
+    <!-- TESTE GRÁTIS -->
+    <section class="section" id="teste" data-animate>
+      <div class="section-label">Experimente agora</div>
+      <div class="trial-box">
+        <div class="trial-icon">🎁</div>
+        <h3>Faça um teste grátis com o Flue</h3>
+        <p>Experimente o Flue sem compromisso! Você pode enviar <strong>10 mensagens gratuitas</strong> para conhecer como funciona na prática.</p>
+        <ul class="trial-features">
+          <li>✓ 10 mensagens de áudio grátis</li>
+          <li>✓ Correções reais de pronúncia</li>
+          <li>✓ Sem cadastro, sem cartão</li>
+        </ul>
+        <a href="https://wa.me/554988486588?text=Quero+fazer+o+teste+grátis+do+Flue!" class="btn-trial" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 0C5.373 0 0 5.373 0 12c0 2.118.553 4.112 1.52 5.845L0 24l6.335-1.494A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.626 0 11.999 0zm0 21.818a9.817 9.817 0 01-5.004-1.373l-.36-.213-3.72.876.893-3.626-.233-.374A9.8 9.8 0 012.182 12c0-5.418 4.399-9.818 9.818-9.818S21.818 6.582 21.818 12 17.419 21.818 12 21.818z"/></svg>
+          Começar teste grátis
+        </a>
+        <p class="trial-note">Após as 10 mensagens, você escolhe se quer continuar com um plano.</p>
       </div>
     </section>
 
@@ -805,9 +929,7 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p><strong>Mensal:</strong> R$ XX,XX/mês — flexibilidade total, cancele quando quiser.</p>
-            <p><strong>Anual:</strong> R$ XX,XX/ano — economize até X meses de prática.</p>
-            <span class="plans-highlight">🎁 Anual = melhor custo-benefício</span>
+            <p>Temos dois planos, mensal e anual. Você escolhe qual modelo se adequa melhor para seu perfil.</p>
           </div>
         </div>
         <div class="faq-item">
